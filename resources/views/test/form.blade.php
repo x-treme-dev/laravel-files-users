@@ -22,5 +22,10 @@
       <br><br>
       <input type="submit" value="Отправить">
     </form>
+     
+    @isset ($path)
+    <img src="{{ asset('/storage/' . $path) }}" alt="">
+    @endisset
+
 </body>
 </html>

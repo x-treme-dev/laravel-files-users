@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage; 
+ 
 use Illuminate\Http\Request;
+ 
+
 
 class RegisterController extends Controller
 {   
-    public $path;
+  
     //
     public function store(Request $request)
 {
@@ -15,22 +17,14 @@ class RegisterController extends Controller
         'name' => 'required|max:30',
         'patronymic' => 'required|max:30',
         'email' => 'required',
+         'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg'
     ]);
- 
-       
-
-    if($request->hasFile('avatar')){
-        $this->path=$request->file('avatar')->store('images');
-     }
-        
-
-        
-
-
-   
   
+    $path = $request->file('avatar')->store('uploads');
  
-    return view('test.register') -> with('path', $this->path);
+   
+       return view('test.register', ['path' => $path]);
+ 
 }
     
 

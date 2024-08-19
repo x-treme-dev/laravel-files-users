@@ -1,3 +1,3 @@
 Hello!
 
-<p>{{$path}}</p>
+ <p>{{ $path }}</p>
