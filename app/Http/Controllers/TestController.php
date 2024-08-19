@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    //
+    // Вывести таблицу пользователей из json'а в шаблоне page.blade.php
+    // Вывести яызки программирования в шаблоне index.blade.php
    private const NEWS = [0 => 'Test'];
 
     public function index(){

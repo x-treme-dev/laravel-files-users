@@ -6,7 +6,7 @@
     <title>form</title>
 </head>
 <body>
-   <form action="{{ route('register') }}" method='post' enctype='mulitpart/form-data'>
+   <form action="{{ route('form.store') }}" method='post' enctype='multipart/form-data'>
      @csrf
       <input type="text" name='surname' id="search" required placeholder="Фамилия">
       <br><br>
@@ -14,13 +14,17 @@
       <br><br>
       <input type="text" name='patronymic' id="search" required placeholder="Отчество">
       <br><br>
-      <input type="email" name='email' id="email" required placeholder="Email"
-      class="@error('email') is-invalid @else is-valid @enderror">
+      <input type="email" name='email' id="email" required placeholder="Email">
        <br>
       <br>Avatar:
       <input type="file" name="avatar" id="avatar">
       <br><br>
       <input type="submit" value="Отправить">
     </form>
+           @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <b>{{ $message }}</b>
+                </div>
+            @endif
 </body>
 </html>
