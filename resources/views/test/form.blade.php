@@ -8,31 +8,40 @@
 <body>
    <form action="{{ route('form.store') }}" method='post' enctype='multipart/form-data'>
      @csrf
-      <input type="text" name='surname' id="search" required placeholder="Фамилия">
+      <input type="text" name='surname' id="surname" required placeholder="Фамилия"  class="@error('surname') is-invalid @else is-valid @enderror">
+      @error('surname')
+      <b>{{ $message }}</b>
+      @enderror
       <br><br>
-      <input type="text" name='name' id="search" required placeholder="Имя">
+      <input type="text" name='name' id="name" required placeholder="Имя"  class="@error('name') is-invalid @else is-valid @enderror">
+      @error('name')
+      <b>{{ $message }}</b>
+      @enderror
       <br><br>
-      <input type="text" name='patronymic' id="search" required placeholder="Отчество">
+      <input type="text" name='patronymic' id="patronymic" required placeholder="Отчество"  class="@error('patronimic') is-invalid @else is-valid @enderror">
+      @error('patronimic')
+      <b>{{ $message }}</b>
+      @enderror
       <br><br>
-      <input type="email" name='email' id="email" required placeholder="Email">
-       <br>
+      <input type="email" name='email' id="email" required placeholder="Email"  class="@error('email') is-invalid @else is-valid @enderror">
+      @error('email')
+      <b>{{ $message }}</b>
+      @enderror 
+      <br>
       <br>Avatar:
       <input type="file" name="avatar" id="avatar">
+      @error('avatar')
+      <b>{{ $message }}</b>
+      @enderror
       <br><br>
       <input type="submit" value="Отправить">
     </form>
-<<<<<<< HEAD
-           @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <b>{{ $message }}</b>
-                </div>
-            @endif
-=======
      
-    @isset ($path)
-    <img src="{{ asset('/storage/' . $path) }}" alt="">
-    @endisset
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <b>{{ $message }}</b>
+    </div> 
+    @endif
 
->>>>>>> 2d6ccb1f1a5e714001e8b210562462f0d4271f64
 </body>
 </html>

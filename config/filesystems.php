@@ -44,17 +44,10 @@ return [
             'throw' => false,
         ],
 
-<<<<<<< HEAD
-        'images' => [
-            'driver' => 'local',
-            'root' => 'public/uploads/images',
-        ],
-=======
         'uploads' => [
              'driver' => 'local',
               'root' => storage_path('app/uploads'), // Adjust the path as needed
          ],
->>>>>>> 2d6ccb1f1a5e714001e8b210562462f0d4271f64
 
         's3' => [
             'driver' => 's3',
